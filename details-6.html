@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Healthy Cakes</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap" rel="stylesheet">
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            font-family: "Poppins", sans-serif;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #FF467C;
+        }
+        
+        .navbar {
+            background-color: #667490;
+        }
+        
+        .scrolling-navbar {
+            transition: background .5s ease-in-out, padding .5s ease-in-out;
+        }
+        
+        .top-nav-collapse {
+            background-color: #667490;
+        }
+        
+        @media only screen and (max-width: 768px) {
+            .navbar {
+                background-color: #667490;
+            }
+        }
+        /* Necessary for full page carousel*/
+        
+        html,
+        body,
+        .view {
+            height: 100%;
+        }
+        
+        .navbar {
+            background: #2d2a30;
+            border-bottom: 2px solid #fff;
+        }
+        
+        .navbar img {
+            height: 45px;
+            width: 180px;
+        }
+        
+        .navbar-nav {
+            margin-left: 17.5rem;
+        }
+        
+        .nav-item {
+            padding-right: 25px;
+            font-size: 17px;
+        }
+        
+        .navbar-nav .nav-item .nav-link {
+            transition: 0.3s;
+            color: #fff;
+        }
+        
+        .navbar-nav .nav-item .nav-link:hover {
+            color: #ff467c;
+        }
+        
+        #i1 {
+            margin-right: 4px;
+        }
+        
+        #i2 {
+            margin-right: 2px;
+        }
+        
+        #i3 {
+            margin-right: 4px;
+            cursor: pointer;
+        }
+        
+        #di:hover {
+            background: #ff467c;
+            color: #fff;
+        }
+        
+        #search-container {
+            float: right;
+            margin-right: 7px;
+        }
+        
+        #search-container input[type=text] {
+            padding: 6px;
+            margin-top: 2.6px;
+            font-size: 17px;
+            border: none;
+            outline: none;
+            width: 10rem;
+        }
+        
+        #search-container button {
+            float: left;
+            padding: 6px 10px;
+            margin-top: 2.6px;
+            margin-left: 35px;
+            background: #ff467c;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+        
+        #search-container button:hover {
+            background: #ff4500;
+        }
+        
+        .navbar .navbar-toggler:focus {
+            outline: none;
+            border: 2px solid #fff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        
+        .navbar .navbar-toggler:hover {
+            border: 2px solid #fff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        
+        @media (max-width: 1300px) {
+            #search-container {
+                margin-right: 1rem;
+                float: left;
+            }
+            #search-container input[type=text],
+            #search-container button {
+                margin-bottom: 5px;
+                margin-top: 8px;
+            }
+            #search-container button {
+                margin-left: 22px;
+            }
+            .navbar-nav {
+                margin-left: 20px;
+            }
+            .navbar img {
+                height: 45px;
+                width: 150px;
+            }
+            .nav-item {
+                padding: 6px 0;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            #search-container input[type=text] {
+                width: 120px;
+            }
+        }
+        
+        #hl {
+            margin-top: 6rem;
+            text-align: center;
+            color: white;
+            font-size: 42px;
+            text-shadow: 0 0 8px #FF467c, 0 0 7px #FFF;
+            font-family: 'Merienda', cursive;
+        }
+        
+        @media (max-width: 500px) {
+            #hl {
+                font-size: 28px;
+                margin-top: 5.5rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+        
+        .slider {
+            font-family: "Poppins", sans-serif;
+            max-width: 700px;
+            max-height: 530px;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        h3 {
+            font-weight: 510;
+            font-size: 27px;
+        }
+        
+        .slider .left-slide,
+        .slider .right-slide {
+            position: absolute;
+            height: 40px;
+            width: 40px;
+            background-color: #444444;
+            border-radius: 50%;
+            color: #ffffff;
+            font-size: 25px;
+            top: 50%;
+            cursor: pointer;
+            margin-top: -10px;
+            text-align: center;
+            line-height: 40px;
+        }
+        
+        .slider .left-slide:hover,
+        .slider .right-slide:hover {
+            box-shadow: 0px 0px 10px black;
+            background-color: #ff467c;
+        }
+        
+        .slider .left-slide {
+            left: 30px;
+        }
+        
+        .slider .right-slide {
+            right: 30px;
+        }
+        
+        .slider .slider-items .item img {
+            width: 100%;
+            display: block;
+        }
+        
+        .slider .slider-items .item {
+            display: none;
+            position: relative;
+        }
+        
+        .slider .slider-items .item .caption {
+            font-family: 'Lobster', cursive;
+            position: absolute;
+            width: 100%;
+            height: 34px;
+            top: 0px;
+            left: 0px;
+            background-color: rgba(0, 0, 0, .5);
+            line-height: 35px;
+            text-align: center;
+            color: #fff;
+            font-size: 22px;
+        }
+        
+        .slider .slider-items .item.active {
+            display: block;
+        }
+        
+        #image-zoom img {
+            transform-origin: 50% 65%;
+            transition: transform 5s, filter 3s ease-in-out;
+        }
+        /* The Transformation */
+        
+        #image-zoom:hover img {
+            transform: scale(2);
+        }
+        
+        @media(max-width:275px) {
+            .slider .left-slide,
+            .slider .right-slide {
+                top: 45%;
+            }
+        }
+        
+        @media(max-width:255px) {
+            .slider .left-slide,
+            .slider .right-slide {
+                top: 40%;
+            }
+        }
+        
+        @media (max-width: 780px) {
+            .slider {
+                margin-bottom: 40px;
+            }
+            h3 {
+                font-size: 22px;
+            }
+            .slider .left-slide {
+                left: 10px;
+            }
+            .slider .right-slide {
+                right: 10px;
+            }
+            .slider .left-slide,
+            .slider .right-slide {
+                height: 30px;
+                width: 30px;
+                font-size: 20px;
+                line-height: 32px;
+                margin-top: 70px;
+            }
+            .slider .slider-items .item .caption {
+                font-size: 13px;
+                line-height: 25px;
+                height: 24px;
+            }
+        }
+        
+        .stepper {
+            display: inline-block;
+            overflow: visible;
+            border: 2px solid #FF467c;
+            border-radius: 4px;
+        }
+        
+        .stepper input {
+            width: 2.5rem;
+            text-align: center;
+            border: 0;
+            color: #000;
+            font-size: 17px;
+            background: #fff;
+            padding-top: 4px;
+            padding-bottom: 2.5px;
+            outline: none;
+            padding-left: 8px;
+        }
+        
+        .stepper .btt1 {
+            width: 1.4em;
+            font-weight: 300;
+            font-size: 1.4em;
+            color: #fff;
+            border: none;
+            background: #FF467c;
+            padding: 3px;
+            padding-left: 12px;
+            padding-right: 12px;
+            cursor: pointer;
+        }
+        
+        .stepper .btt2 {
+            width: 1.4em;
+            font-weight: 300;
+            font-size: 1.4em;
+            color: #fff;
+            border: none;
+            background: #FF467c;
+            padding: 3px;
+            padding-right: 13.5px;
+            padding-left: 13.5px;
+            cursor: pointer;
+        }
+        
+        @media(max-width:400px) {
+            .stepper input {
+                width: 2rem;
+                padding-left: 2px;
+            }
+            .stepper .btt1 {
+                width: 1rem;
+                padding-left: 6px;
+                padding-right: 6px;
+                font-weight: 100;
+            }
+            .stepper .btt2 {
+                width: 1rem;
+                padding-left: 7px;
+                padding-right: 7px;
+                font-weight: 100;
+            }
+        }
+        
+        @media(max-width:275px) {
+            .stepper input {
+                width: 1.6rem;
+            }
+            .stepper .btt1 {
+                width: 1rem;
+                padding-left: 4px;
+                padding-right: 4px;
+                font-weight: 100;
+            }
+            .stepper .btt2 {
+                width: 1rem;
+                padding-left: 5px;
+                padding-right: 5px;
+                font-weight: 100;
+            }
+        }
+        
+        #btt3 {
+            background-color: #FF467c;
+            border: #FF467c;
+            color: #fff;
+        }
+        
+        #btt3:hover {
+            outline: none;
+            border: none;
+            box-shadow: none;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #FF467c;
+            color: #fff;
+        }
+        
+        #next {
+            padding: 10px;
+            border-radius: 4px;
+            border: none;
+            background-color: #2d2a30;
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        #next:hover {
+            color: #FF467c;
+        }
+        
+        .fab {
+            color: #FF4500;
+        }
+        
+        .fab:hover {
+            color: #2d2a30;
+        }
+        
+        #sub {
+            padding: 10px;
+            border-radius: 4px;
+            border: none;
+            background-color: #FF467c;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        #sub:hover {
+            background-color: #FF4500;
+        }
+        
+        .box {
+            font-size: 14px;
+            border: 2px solid #c0c0c0;
+            outline: none;
+        }
+        
+        .box:focus {
+            border: 2px solid #FF467c;
+        }
+        
+        #h11 {
+            color: #ff4500;
+            font-weight: bold;
+            font-size: 18px;
+            padding-right: 17px;
+        }
+        
+        #p11 {
+            color: #ff467c;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        #p12 {
+            color: #2d2a30;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+            outline: 0;
+            box-shadow: none;
+            border: 0!important;
+            background: #FF467c;
+            background-image: none;
+            flex: 1;
+            padding: 0 .5em;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1rem;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        select::-ms-expand {
+            display: none;
+        }
+        
+        .select {
+            position: relative;
+            display: flex;
+            width: 10rem;
+            height: 2.5em;
+            line-height: 2.5rem;
+            background: #5c6664;
+            overflow: hidden;
+            border-radius: .25em;
+        }
+        
+        .select::after {
+            content: '\25BC';
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 0 1em;
+            background: #2d2a30;
+            cursor: pointer;
+            pointer-events: none;
+            transition: .25s all ease;
+        }
+        
+        .select:hover::after {
+            color: #FF467c;
+        }
+        
+        @media(max-width:500px) {
+            #next {
+                font-size: 16px;
+            }
+            #h11 {
+                font-size: 16px;
+            }
+            #p11 {
+                font-size: 16px;
+            }
+            #p12 {
+                font-size: 14px;
+            }
+            .select {
+                width: 6rem;
+            }
+            .select::after {
+                padding: 0 0.5rem;
+            }
+        }
+        
+        @media(max-width:1300px) {
+            #h11 {
+                padding: 10px;
+            }
+        }
+        
+        @media(max-width:260px) {
+            #h11 {
+                padding: 4px;
+                font-size: 15px;
+            }
+        }
+        
+        #sd {
+            max-width: 700px;
+            margin-bottom: 80px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 29px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #sd1 {
+            padding: 30px;
+            border-radius: 10px;
+            background: #fff;
+        }
+        
+        #ad textarea {
+            outline: none;
+            border: 2px solid #c0c0c0;
+            border-radius: 4px;
+            height: 100px;
+            width: 250px;
+            font-size: 16px;
+        }
+        
+        #ad textarea:focus {
+            border: 2px solid #FF467c;
+        }
+        
+        #ad input {
+            outline: none;
+            border: 2px solid #c0c0c0;
+            border-radius: 4px;
+            width: 250px;
+            font-size: 16px;
+        }
+        
+        #ad input:focus {
+            border: 2px solid #FF467c;
+        }
+        
+        #vmd {
+            font-size: 18px;
+            color: #05a1f5;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        @media(max-width:500px) {
+            #ad textarea {
+                height: 80px;
+                width: 180px;
+                font-size: 16px;
+            }
+            #ad input {
+                width: 180px;
+                font-size: 16px;
+            }
+            #sd1 {
+                padding: 15px;
+            }
+        }
+        
+        strong {
+            font-size: 18px;
+        }
+        
+        @media(max-width:500px) {
+            strong {
+                font-size: 16px;
+            }
+            #vmd {
+                font-size: 16px;
+            }
+        }
+        
+        .flash {
+            -webkit-animation-name: flash;
+            -webkit-animation-duration: 0.5s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-timing-function: ease-in-out;
+            -webkit-animation-direction: alternate;
+        }
+        
+        @-webkit-keyframes flash {
+            from {
+                color: #ff467c;
+            }
+            to {
+                color: #FF4500;
+            }
+        }
+        /* footer */
+        
+        footer {
+            position: relative;
+            bottom: 0;
+        }
+        
+        @media (max-height:800px) {
+            footer {
+                position: static;
+            }
+        }
+        
+        .footer-distributed {
+            background-color: #2d2a30;
+            box-sizing: border-box;
+            width: 100%;
+            text-align: left;
+            font: bold 16px sans-serif;
+            padding: 50px 50px 60px 50px;
+            margin-top: 80px;
+        }
+        
+        .footer-distributed .footer-left,
+        .footer-distributed .footer-center,
+        .footer-distributed .footer-right {
+            display: inline-block;
+            vertical-align: top;
+        }
+        /* Footer left */
+        
+        .footer-distributed .footer-left {
+            width: 30%;
+        }
+        
+        .footer-distributed h3 {
+            color: #ffffff;
+            font: normal 36px 'Cookie', cursive;
+            margin: 0;
+        }
+        
+        .footer-distributed h3 span {
+            color: #ff467c;
+        }
+        /* Footer links */
+        
+        .footer-distributed .footer-links {
+            color: #ffffff;
+            margin: 20px 0 12px;
+        }
+        
+        .footer-distributed .footer-links a {
+            display: inline-block;
+            line-height: 1.8;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .footer-distributed .footer-company-name {
+            color: #8f9296;
+            font-size: 14px;
+            font-weight: normal;
+            margin: 0;
+        }
+        /* Footer Center */
+        
+        .footer-distributed .footer-center {
+            width: 35%;
+        }
+        
+        .footer-distributed .footer-center i {
+            background-color: #ff467c;
+            color: #fff;
+            font-size: 20px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 42px;
+            margin: 10px 15px;
+            vertical-align: middle;
+        }
+        
+        .footer-distributed .footer-center i:hover {
+            background-color: #ff4500;
+        }
+        
+        .footer-distributed .footer-center i.fa-envelope {
+            line-height: 38px;
+        }
+        
+        .footer-distributed .footer-center p {
+            display: inline-block;
+            color: #ffffff;
+            vertical-align: middle;
+            margin: 0;
+        }
+        
+        .footer-distributed .footer-center p span {
+            display: block;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 2;
+        }
+        
+        .footer-distributed .footer-center p a {
+            color: #fff;
+            text-decoration: none;
+            ;
+        }
+        /* Footer Right */
+        
+        .footer-distributed .footer-right {
+            width: 30%;
+        }
+        
+        .footer-distributed .footer-company-about {
+            line-height: 20px;
+            color: #92999f;
+            font-size: 13px;
+            font-weight: normal;
+            margin: 0;
+        }
+        
+        .footer-distributed .footer-company-about span {
+            display: block;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .footer-distributed .footer-icons {
+            margin-top: 25px;
+        }
+        
+        .footer-distributed .footer-icons a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            background-color: #33383b;
+            border-radius: 2px;
+            font-size: 20px;
+            color: #ffffff;
+            text-align: center;
+            line-height: 35px;
+            margin-right: 3px;
+            margin-bottom: 5px;
+        }
+        
+        .footer-distributed .footer-icons a {
+            background-color: #ff467c;
+        }
+        
+        .footer-distributed .footer-icons a:hover {
+            background-color: #ff4500;
+        }
+        
+        .footer-links a:hover {
+            color: #ff467c;
+        }
+        
+        @media (max-width: 900px) {
+            .footer-distributed .footer-left,
+            .footer-distributed .footer-center,
+            .footer-distributed .footer-right {
+                display: block;
+                width: 100%;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+            .footer-distributed .footer-center i {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="animation-area">
+        <ul class="box-area">
+
+        </ul>
+
+        <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar fixed-top">
+
+            <!-- Navbar brand -->
+            <img src="logo.png">
+
+            <!-- Collapse button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+            <!-- Collapsible content -->
+            <div class="collapse navbar-collapse" id="basicExampleNav">
+
+                <!-- Links -->
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html"><i class="fa fa-home" id="i2"></i>Home
+                  <span class="sr-only">(current)</span>
+              </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><i class="fa fa-info-circle" id="i1"></i>About</a>
+                    </li>
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor:pointer;color:#ff467c;"><i class="fa fa-user-circle" id="i3"></i>Account</a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" id="di" href="signup.html">Sign up</a>
+                            <a class="dropdown-item" id="di" href="signin.html">Sign in</a>
+                            <a class="dropdown-item" id="di" href="index.html">Sign out</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="fa fa-fw fa-envelope" id="i2"></i>Contact</a>
+                    </li>
+
+                </ul>
+                <!-- Links -->
+
+                <div id="search-container">
+                    <form action="index.html">
+                        <input type="text" placeholder="Search.." name="search">
+                        <button type="submit"><i class="fa fa-search" style="color:#fff;"></i></button>
+                    </form>
+                </div>
+            </div>
+            <!-- Collapsible content -->
+
+        </nav>
+        <!--/.Navbar-->
+
+        <h1 id="hl">Healthy Cakes</h1>
+        <div class="col-lg-7 h-auto mb-50" id="sd">
+            <div class="h-100 mb-4" id="sd1">
+                <h3 style="color:#FF467c">Christmas Snowman Photo Cake - Half Kg</h3>
+                <div class="d-flex mb-3">
+                    <div class="text-primary mr-2">
+                        <small class="fas fa-star" style="color:#FF4500"></small>
+                        <small class="fas fa-star" style="color:#FF4500"></small>
+                        <small class="fas fa-star" style="color:#FF4500"></small>
+                        <small class="fas fa-star" style="color:#FF4500"></small>
+                        <small class="fas fa-star" style="color:#FF4500"></small>
+                    </div>
+                    <small class="pt-1">(99 Reviews)</small>
+                </div>
+                <h3 class="font-weight-semi-bold mb-3">Rs. 995</h3>
+
+                <div class="slider">
+                    <div class="slider-items">
+                        <div class="item active" id="image-zoom">
+                            <img src="p2.png" />
+                            <div class="caption">
+                                Excellent Hygiene
+                            </div>
+                        </div>
+                        <div class="item" id="image-zoom">
+                            <img src="d61.jpg" />
+                            <div class="caption">
+                                Excellent Hygiene
+                            </div>
+                        </div>
+                        <div class="item" id="image-zoom">
+                            <img src="d62.jpg" />
+                            <div class="caption">
+                                Excellent Hygiene
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!-- slider controls -->
+                    <div class="left-slide">
+                        <</div>
+                            <div class="right-slide">></div>
+                            <!-- slider controls -->
+                    </div>
+                    <strong class="text-dark mr-4">FREE delivery <span class="flash">30/12/2022.</span> Order within <span style="color:#FF467c;">20hrs 24 mins.</span><a href="#de-sec" style="text-decoration: none;"><br> <span id="vmd">  View more details</span></a></strong>
+                    <br>
+                    <p style="font-size:15px;margin-top:26px;">Note: (Cake Types: Eggless (+ Rs. 100) <span style="color:#FF467c;">&</span> Sugar Free (+ Rs. 199)) </p>
+
+
+                    <div class="d-flex mb-4 mt-4">
+                        <form action="final.html">
+                            <select name="productname" style="background:#FFF;font-size:1px;">
+                              <option value="Christmas Snowman Photo Cake - Half Kg">Christmas Snowman Photo Cake - Half Kg</option>
+                           </select>
+                            <select name="productprice" style="background:#FFF;font-size:1px;">
+                              <option value="Rs. 995">Rs. 995</option>
+                           </select>
+                            <select name="deliverydate" style="background:#FFF;font-size:1px;">
+                              <option value="30/12/2022">30/12/2022</option>
+                           </select>
+
+                            <div class="d-flex align-items-center">
+                                <strong class="text-dark mr-4">Cake Sizes:</strong>
+                                <div class="btn-group">
+                                    <div class="select" style="color: #fff;">
+                                        <select id="format" name="cakesize" required>
+                          <option value="">Select</option>
+                          <option value="1/2 Kg">1/2 Kg</option>
+                          <option value="1 Kg">1 Kg</option>
+                          <option value="2 Kg">2 Kg</option>
+                          <option value="3 Kg">3 Kg</option>
+                          <option value="4 Kg">4 Kg</option>
+                       </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+
+
+                            <div class="d-flex align-items-center">
+                                <strong class="text-dark mr-4">Cake Types:</strong>
+                                <div class="btn-group">
+                                    <div class="select" style="color: #fff;">
+                                        <select id="format" name="caketype" required>
+                              <option value="">Select</option>
+                              <option value="Eggless">Eggless</option>
+                              <option value="Sugar Free">Sugar Free</option>
+                           </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="d-flex align-items-center mb-4 pt-4">
+                                <strong class="text-dark mr-4">Quantity:</strong>
+                                <div class="stepper"><span class="btt1">–</span><input type="number" name="quantity" id="stepper1" value="1" min="1" max="100" step="1" readonly><span class="btt2">+</span></div>
+                            </div>
+
+                            <div class="d-flex align-items-center">
+                                <strong class="text-dark mr-4">Payment method: </strong>
+                                <div class="btn-group">
+                                    <div class="select" style="color: #fff;">
+                                        <select id="format" name="paymentmethod" required>
+                              <option value="">Select</option>
+                              <option value="Cash On Delivery">
+                                Cash On Delivery</option>
+                              <option value="Pay with Debit Cards">Pay with Debit Cards</option>
+                           </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+
+                                <strong class="d-flex mt-4 mb-2">Name:</strong>
+                                <div id="ad">
+                                    <input id="ad" type="text" pattern="[A-Za-z ]{1,40}" name="customername" required>
+                                </div>
+
+
+                                <strong class="d-flex mt-4 mb-2">Address:</strong>
+                                <div id="ad">
+                                    <textarea type="text" rows="4" cols="20" name="customeraddress" required></textarea>
+                                </div>
+
+                                <div class="d-flex align-items-center mb-4 pt-2 mt-4">
+                                    <button type="submit" class="btn px-4" id="next"><i class="fa fa-shopping-cart mr-1" aria-hidden="true"></i> Buy Now</button>
+                                </div>
+
+                        </form>
+
+                        <div class="d-flex pt-4">
+                            <strong class="text-dark mr-2">Share on:</strong>
+                            <div class="d-inline-flex">
+                                <a class="text-dark px-2" href="">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a class="text-dark px-2" href="">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a class="text-dark px-2" href="">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a class="text-dark px-2" href="">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                        </div>
+
+                    </div>
+                    <section class="row" id="de-sec">
+                        <div class="col">
+                            <div class=" p-30" style="background:#fff;">
+                                <div class="nav nav-tabs mb-4">
+                                    <a class="nav-item nav-link active" id="h11" data-toggle="tab" href="#tab-pane-1">Description</a>
+                                    <a class="nav-item nav-link" id="h11" data-toggle="tab" href="#tab-pane-3">Reviews </a>
+                                </div>
+                                <div class="tab-content text-left mr-3 ">
+                                    <div class="tab-pane fade show active" id="tab-pane-1">
+                                        <h6 class="mb-3" id="p11">Product Description</h6>
+                                        <ul style="list-style: none;">
+                                            <li id="p12">Enjoy Christmas with this amazing fresh cream poster cake that has festive special snowman and reindeer design as the icing. Add tempting yumminess to the yuletide festival with this half kg cake in your favourite
+                                                flavour.
+                                                <br>
+                                                <br> Key attributes :<br> 1. Weight : 0.5 kg<br> 2. Shape : Round<br> 3. Flavours : Red Velvet</li>
+
+                                        </ul>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="tab-pane-3">
+                                        <div class="row" style="text-align: center;">
+                                            <div class="col-md-6">
+                                                <h4 class="mb-4" id="p11">Reviews</h4>
+                                                <div class="media mb-4">
+
+                                                    <div class="media-body">
+                                                        <h6 id="p12">John Doe<small> - <i>01 Jan 2023</i></small></h6>
+                                                        <div class="text-primary mb-2" style="font-size: 16px;">
+                                                            <i class="fas fa-star" style="color:#FF4500;"></i>
+                                                            <i class="fas fa-star" style="color:#FF4500;"></i>
+                                                            <i class="fas fa-star" style="color:#FF4500;"></i>
+                                                            <i class="fas fa-star" style="color:#FF4500;"></i>
+                                                            <i class="fas fa-star-half-alt" style="color:#FF4500;"></i>
+                                                        </div>
+                                                        <p id="p12">Healthy cakes & tasty!</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6" style="text-align: center;">
+                                                <h4 class="mb-3" id="p11">Give your Review</h4>
+                                                <small>Your email address will not be published. Required fields are marked *</small>
+
+                                                <form action="revmessage.html">
+                                                    <div class="form-group mt-3">
+                                                        <label for="message" id="p12">Your Review *</label><br>
+                                                        <textarea id="message" class="box" name="review" required></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="name" id="p12">Your Name *</label><br>
+                                                        <input type="text" class="box" id="name" name="rname" pattern="[A-Za-z ]{1,40}" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="email" id="p12">Your Email *</label><br>
+                                                        <input type="email" class="box" id="email" name="remail" required>
+                                                    </div>
+                                                    <div class="form-group mb-0">
+                                                        <input type="submit" id="sub" value="Submit" class="btn px-3">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+            <!-- footer -->
+
+
+            <footer class="footer-distributed">
+
+                <div class="footer-left">
+                    <h3>Healthy<span> Cakes</span></h3>
+
+                    <p class="footer-links">
+                        <a href="index.html">Home</a> |
+                        <a href="contact.html">Contact</a>
+                    </p>
+
+                </div>
+
+                <div class="footer-center">
+                    <div>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p><span>ABCD</span> ABCD
+                        </p>
+                    </div>
+
+                    <div>
+                        <i class="fas fa-phone-alt"></i>
+                        <p>+91 1234567890</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-envelope"></i>
+                        <p><a href="mailto:sagar00001.co@gmail.com">ab@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <p class="footer-company-about">
+                        <span>About the company</span>
+                        <strong>Healthy Cakes</strong> is the best cake shop. Hence, add more happiness to your every celebrations with our healthy cakes
+                    </p>
+                    <div class="footer-icons">
+                        <a href="#"><i style="color:#FFF" class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i style="color:#FFF" class="fab fa-instagram"></i></a>
+                        <a href="#"><i style="color:#FFF" class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i style="color:#FFF" class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </footer>
+            <script>
+                var slides = document.querySelector('.slider-items').children;
+                var nextSlide = document.querySelector(".right-slide");
+                var prevSlide = document.querySelector(".left-slide");
+                var totalSlides = slides.length;
+                var index = 0;
+
+                nextSlide.onclick = function() {
+                    next("next");
+                }
+                prevSlide.onclick = function() {
+                    next("prev");
+                }
+
+                function next(direction) {
+
+                    if (direction == "next") {
+                        index++;
+                        if (index == totalSlides) {
+                            index = 0;
+                        }
+                    } else {
+                        if (index == 0) {
+                            index = totalSlides - 1;
+                        } else {
+                            index--;
+                        }
+                    }
+
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].classList.remove("active");
+                    }
+                    slides[index].classList.add("active");
+
+                }
+            </script>
+            <script>
+                // Stepper Increment Style Element, use container as class="stepper"
+                var inc = document.getElementsByClassName("stepper");
+                for (i = 0; i < inc.length; i++) {
+                    var incI = inc[i].querySelector("input"),
+                        id = incI.getAttribute("id"),
+                        min = incI.getAttribute("min"),
+                        max = incI.getAttribute("max"),
+                        step = incI.getAttribute("step");
+                    document
+                        .getElementById(id)
+                        .previousElementSibling.setAttribute(
+                            "onclick",
+                            "stepperInput('" + id + "', -" + step + ", " + min + ")"
+                        ); // Down
+                    document
+                        .getElementById(id)
+                        .nextElementSibling.setAttribute(
+                            "onclick",
+                            "stepperInput('" + id + "', " + step + ", " + max + ")"
+                        ); // Up
+                }
+
+                // Stepper Increment Function with Min/Max
+                function stepperInput(id, s, m) {
+                    var el = document.getElementById(id);
+                    if (s > 0) {
+                        if (parseInt(el.value) < m) {
+                            el.value = parseInt(el.value) + s;
+                        }
+                    } else {
+                        if (parseInt(el.value) > m) {
+                            el.value = parseInt(el.value) + s;
+                        }
+                    }
+                    // Execute other functions when stepping below
+                }
+            </script>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+</html>

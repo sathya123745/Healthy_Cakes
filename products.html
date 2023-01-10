@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Healthy Cakes</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: #FF467c;
+        }
+        
+        .navbar {
+            background-color: #667490;
+        }
+        
+        .scrolling-navbar {
+            transition: background .5s ease-in-out, padding .5s ease-in-out;
+        }
+        
+        .top-nav-collapse {
+            background-color: #667490;
+        }
+        
+        @media only screen and (max-width: 768px) {
+            .navbar {
+                background-color: #667490;
+            }
+        }
+        /* Necessary for full page carousel*/
+        
+        html,
+        body,
+        .view {
+            height: 100%;
+        }
+        
+        .navbar {
+            background: #2d2a30;
+            border-bottom: 2px solid #fff;
+        }
+        
+        .navbar img {
+            height: 45px;
+            width: 180px;
+        }
+        
+        .navbar-nav {
+            margin-left: 17.5rem;
+        }
+        
+        .nav-item {
+            padding-right: 25px;
+            font-size: 17px;
+        }
+        
+        .navbar-nav .nav-item .nav-link {
+            color: #fff;
+            transition: 0.3s;
+        }
+        
+        .navbar-nav .nav-item .nav-link:hover {
+            color: #ff467c;
+        }
+        
+        #i1 {
+            margin-right: 4px;
+        }
+        
+        #i2 {
+            margin-right: 2px;
+        }
+        
+        #i3 {
+            margin-right: 4px;
+            cursor: pointer;
+        }
+        
+        #di:hover {
+            background: #ff467c;
+            color: #fff;
+        }
+        
+        #search-container {
+            float: right;
+            margin-right: 7px;
+        }
+        
+        #search-container input[type=text] {
+            padding: 6px;
+            margin-top: 2.6px;
+            font-size: 17px;
+            border: none;
+            outline: none;
+            width: 10rem;
+        }
+        
+        #search-container button {
+            float: left;
+            padding: 6px 10px;
+            margin-top: 2.6px;
+            margin-left: 35px;
+            background: #ff467c;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+        
+        #search-container button:hover {
+            background: #ff4500;
+        }
+        
+        .navbar .navbar-toggler:hover {
+            outline: none;
+            border: 2px solid #fff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        
+        @media (max-width: 1300px) {
+            #search-container {
+                margin-right: 1rem;
+                float: left;
+            }
+            #search-container input[type=text],
+            #search-container button {
+                margin-bottom: 5px;
+                margin-top: 8px;
+            }
+            #search-container button {
+                margin-left: 22px;
+            }
+            .navbar-nav {
+                margin-left: 20px;
+            }
+            .navbar img {
+                height: 45px;
+                width: 150px;
+            }
+            .nav-item {
+                padding: 6px 0;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            #search-container input[type=text] {
+                width: 120px;
+            }
+        }
+        
+        #hl {
+            margin-top: 6rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: white;
+            font-size: 42px;
+            text-shadow: 0 0 8px #FF467c, 0 0 7px #FFF;
+            font-family: 'Merienda', cursive;
+        }
+        
+        @media (max-width: 500px) {
+            #hl {
+                font-size: 28px;
+                margin-top: 5.5rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .caption {
+                top: 15%;
+            }
+            .caption h3 {
+                font-size: 28px;
+            }
+        }
+        /* footer */
+        
+        footer {
+            margin-top: 8rem;
+            position: relative;
+            bottom: 0;
+        }
+        
+        @media (max-height:800px) {
+            footer {
+                position: static;
+            }
+        }
+        
+        .footer-distributed {
+            background-color: #2d2a30;
+            box-sizing: border-box;
+            width: 100%;
+            text-align: left;
+            font: bold 16px sans-serif;
+            padding: 50px 50px 60px 50px;
+        }
+        
+        .footer-distributed .footer-left,
+        .footer-distributed .footer-center,
+        .footer-distributed .footer-right {
+            display: inline-block;
+            vertical-align: top;
+        }
+        /* Footer left */
+        
+        .footer-distributed .footer-left {
+            width: 30%;
+        }
+        
+        .footer-distributed h3 {
+            color: #ffffff;
+            font: normal 36px 'Cookie', cursive;
+            margin: 0;
+        }
+        
+        .footer-distributed h3 span {
+            color: #ff467c;
+        }
+        /* Footer links */
+        
+        .footer-distributed .footer-links {
+            color: #ffffff;
+            margin: 20px 0 12px;
+        }
+        
+        .footer-distributed .footer-links a {
+            display: inline-block;
+            line-height: 1.8;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .footer-distributed .footer-company-name {
+            color: #8f9296;
+            font-size: 14px;
+            font-weight: normal;
+            margin: 0;
+        }
+        /* Footer Center */
+        
+        .footer-distributed .footer-center {
+            width: 35%;
+        }
+        
+        .footer-distributed .footer-center i {
+            background-color: #ff467c;
+            color: #fff;
+            font-size: 20px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 42px;
+            margin: 10px 15px;
+            vertical-align: middle;
+        }
+        
+        .footer-distributed .footer-center i:hover {
+            background-color: #ff4500;
+        }
+        
+        .footer-distributed .footer-center i.fa-envelope {
+            line-height: 38px;
+        }
+        
+        .footer-distributed .footer-center p {
+            display: inline-block;
+            color: #ffffff;
+            vertical-align: middle;
+            margin: 0;
+        }
+        
+        .footer-distributed .footer-center p span {
+            display: block;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 2;
+        }
+        
+        .footer-distributed .footer-center p a {
+            color: #fff;
+            text-decoration: none;
+            ;
+        }
+        /* Footer Right */
+        
+        .footer-distributed .footer-right {
+            width: 30%;
+        }
+        
+        .footer-distributed .footer-company-about {
+            line-height: 20px;
+            color: #92999f;
+            font-size: 13px;
+            font-weight: normal;
+            margin: 0;
+        }
+        
+        .footer-distributed .footer-company-about span {
+            display: block;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .footer-distributed .footer-icons {
+            margin-top: 25px;
+        }
+        
+        .footer-distributed .footer-icons a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            background-color: #33383b;
+            border-radius: 2px;
+            font-size: 20px;
+            color: #ffffff;
+            text-align: center;
+            line-height: 35px;
+            margin-right: 3px;
+            margin-bottom: 5px;
+        }
+        
+        .footer-distributed .footer-icons a {
+            background-color: #ff467c;
+        }
+        
+        .footer-distributed .footer-icons a:hover {
+            background-color: #ff4500;
+        }
+        
+        .footer-links a:hover {
+            color: #ff467c;
+        }
+        
+        @media (max-width: 900px) {
+            .footer-distributed .footer-left,
+            .footer-distributed .footer-center,
+            .footer-distributed .footer-right {
+                display: block;
+                width: 100%;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+            .footer-distributed .footer-center i {
+                margin-left: 0;
+            }
+        }
+        
+        .cfluid {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            background: #FFF;
+        }
+        /* ============= Animation background ========= */
+        
+        #io {
+            background-color: #343a40;
+        }
+        
+        #ic {
+            color: #FFF;
+        }
+        
+        #ic:hover {
+            color: #ff467c;
+        }
+        
+        #de {
+            font-size: 19px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        #de:hover {
+            color: #ff467c;
+        }
+        
+        #bb {
+            background: #2d2a30;
+        }
+        
+        #bb:hover {
+            background: #2d2a30;
+        }
+        
+        h5 {
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        @media(max-width: 900px) {
+            #pa {
+                padding-top: 200px;
+            }
+        }
+        
+        .scrollanimation {
+            position: fixed;
+            bottom: 60px;
+            right: 20px;
+            width: 35px;
+            height: 35px;
+            background: url('arrow-up-solid.svg');
+            color: #fff;
+            background-color: #ffF;
+            box-shadow: 2px 2px 10px #ffF;
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1000000;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.5s;
+        }
+        
+        @media (max-width: 900px) {
+            .scrollanimation {
+                right: 15px;
+            }
+        }
+        
+        .Active {
+            bottom: 103px;
+            opacity: 1;
+            visibility: visible;
+            transition: 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="scrollanimation" onclick="scrolltotop();"></div>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            var scroll = document.querySelector('.scrollanimation');
+            scroll.classList.toggle("Active", window.scrollY > 500);
+        })
+
+        function scrolltotop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+            })
+        }
+    </script>
+
+    <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar fixed-top">
+
+        <!-- Navbar brand -->
+        <img src="logo.png">
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="basicExampleNav">
+
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html"><i class="fa fa-home" id="i2"></i>Home
+          <span class="sr-only">(current)</span>
+      </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html"><i class="fa fa-info-circle" id="i1"></i>About</a>
+                </li>
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor:pointer;color:#ff467c;"><i class="fa fa-user-circle" id="i3"></i>Account</a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" id="di" href="signup.html">Sign up</a>
+                        <a class="dropdown-item" id="di" href="signin.html">Sign in</a>
+                        <a class="dropdown-item" id="di" href="index.html">Sign out</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html"><i class="fa fa-fw fa-envelope" id="i2"></i>Contact</a>
+                </li>
+
+            </ul>
+            <!-- Links -->
+
+            <div id="search-container">
+                <form action="index.html">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fa fa-search" style="color:#fff;"></i></button>
+                </form>
+            </div>
+        </div>
+        <!-- Collapsible content -->
+
+    </nav>
+    <!--/.Navbar-->
+
+
+
+    <!-- Products Start -->
+    <h1 id="hl">Healthy Cakes</h1>
+    <div class="container-fluid  pb-3">
+        <div class="row px-xl-5">
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                <div class="product-item bg-light mb-4">
+                    <div class="product-img position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="t2.png" alt="">
+
+                    </div>
+                    <div class="text-center py-4" id="bb">
+                        <a href="details-1.html" style="text-decoration: none;">
+                            <h6 id="de">The White Floral Cake</h6>
+                        </a>
+                        <div class="d-flex align-items-center justify-content-center mt-2">
+                            <h5>Rs. 5,799</h5>
+
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center mb-1">
+                            <small class="fa fa-star mr-1" style="color:#FF467c"></small>
+                            <small class="fa fa-star mr-1" style="color:#FF467c"></small>
+                            <small class="fa fa-star mr-1" style="color:#FF467c"></small>
+                            <small class="fa fa-star mr-1" style="color:#FF467c"></small>
+                            <small class="fa fa-star-half-alt mr-1" style="color:#ff467c"></small>
+                            <small style="color:#FFF">(99)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                <div class="product-item bg-light mb-4">
+                    <div class="product-img position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="n2.png" alt="">
+
+                    </div>
+                    <div class="text-center py-4" id="bb">
+                        <a href="details-2.html" style="text-decoration: none;">
+                            <h6 id="de">Melting Butterscotch Cake</h6>
+                        </a>
+                        <div class="d-flex align-items-center justify-content-center mt-2">
+                            <h5>Rs. 649</h5>
+
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center mb-1">
+                            <small class="fa fa-star mr-1" style="color:#FF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#FF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#FF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#FF467C"></small>
+                            <small class="fa fa-star-half-alt mr-1" style="color:#ff467c"></small>
+                            <small style="color:#FFF">(99)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                <div class="product-item bg-light mb-4">
+                    <div class="product-img position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="n3.png" alt="">
+
+                    </div>
+                    <div class="text-center py-4" id="bb">
+                        <a href="details-3.html" style="text-decoration: none;">
+                            <h6 id="de">Classic Red Velvet Cake</h6>
+                        </a>
+                        <div class="d-flex align-items-center justify-content-center mt-2">
+                            <h5>Rs. 645</h5>
+
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center mb-1">
+                            <small class="fa fa-star mr-1" style="color:#FF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#FF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#FF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#FF467C"></small>
+                            <small class="fa fa-star-half-alt mr-1" style="color:#ff467C"></small>
+                            <small style="color:#FFF">(99)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                <div class="product-item bg-light mb-4">
+                    <div class="product-img position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="n4.png" alt="">
+
+                    </div>
+                    <div class="text-center py-4" id="bb">
+                        <a href="details-4.html" style="text-decoration: none;">
+                            <h6 id="de">Palatable Pineapple Cake</h6>
+                        </a>
+                        <div class="d-flex align-items-center justify-content-center mt-2">
+                            <h5>Rs. 845</h5>
+
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center mb-1">
+                            <small class="fa fa-star mr-1" style="color:#FF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#fF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small style="color:#FFF">(99)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                <div class="product-item bg-light mb-4">
+                    <div class="product-img position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="n1.png" alt="">
+
+                    </div>
+                    <div class="text-center py-4" id="bb">
+                        <a href="details-5.html" style="text-decoration: none;">
+                            <h6 id="de">Decorated Chocolate<br>Truffle Cake</h6>
+                        </a>
+                        <div class="d-flex align-items-center justify-content-center mt-2">
+                            <h5>Rs. 699</h5>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center mb-1">
+                            <small class="fa fa-star mr-1" style="color:#FF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#fF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small style="color:#FFF">(99)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                <div class="product-item bg-light mb-4">
+                    <div class="product-img position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="p2.png" alt="">
+
+                    </div>
+                    <div class="text-center py-4" id="bb">
+                        <a href="details-6.html" style="text-decoration: none;">
+                            <h6 id="de">Christmas Snowman Photo Cake</h6>
+                        </a>
+                        <div class="d-flex align-items-center justify-content-center mt-2">
+                            <h5>Rs. 995</h5>
+
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center mb-1">
+                            <small class="fa fa-star mr-1" style="color:#FF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#fF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small class="fa fa-star-half-alt mr-1" style="color:#ff467C"></small>
+                            <small style="color:#FFF">(99)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                <div class="product-item bg-light mb-4">
+                    <div class="product-img position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="p3.png" alt="">
+
+                    </div>
+                    <div class="text-center py-4" id="bb">
+                        <a href="details-7.html" style="text-decoration: none;">
+                            <h6 id="de">Special Bond Photo<br>Chocolate Cake</h6>
+                        </a>
+                        <div class="d-flex align-items-center justify-content-center mt-2">
+                            <h5>Rs. 1,049</h5>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center mb-1">
+                            <small class="fa fa-star mr-1" style="color:#FF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#fF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small style="color:#FFF">(99)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                <div class="product-item bg-light mb-4">
+                    <div class="product-img position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="t1.png" alt="">
+
+                    </div>
+                    <div class="text-center py-4" id="bb">
+                        <a href="details-8.html" style="text-decoration: none;">
+                            <h6 id="de">Heart Shaped Pinata<br>Smash Cake</h6>
+                        </a>
+                        <div class="d-flex align-items-center justify-content-center mt-2">
+                            <h5>Rs. 699</h5>
+
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center mb-1">
+                            <small class="fa fa-star mr-1" style="color:#FF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#fF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small style="color:#FFF">(99)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                <div class="product-item bg-light mb-4">
+                    <div class="product-img position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="p4.png" alt="">
+
+                    </div>
+                    <div class="text-center py-4" id="bb">
+                        <a href="details-9.html" style="text-decoration: none;">
+                            <h6 id="de">Cartoon Photo Cake</h6>
+                        </a>
+                        <div class="d-flex align-items-center justify-content-center mt-2">
+                            <h5>Rs. 845</h5>
+
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center mb-1">
+                            <small class="fa fa-star mr-1" style="color:#FF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#fF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small class="fa fa-star-half-alt mr-1" style="color:#ff467C"></small>
+                            <small style="color:#FFF">(99)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                <div class="product-item bg-light mb-4">
+                    <div class="product-img position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="p1.png" alt="">
+
+                    </div>
+                    <div class="text-center py-4" id="bb">
+                        <a href="details-10.html" style="text-decoration: none;">
+                            <h6 id="de">Black Forest Photo Cake</h6>
+                        </a>
+                        <div class="d-flex align-items-center justify-content-center mt-2">
+                            <h5>Rs. 975</h5>
+
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center mb-1">
+                            <small class="fa fa-star mr-1" style="color:#FF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#fF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small style="color:#FFF">(99)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                <div class="product-item bg-light mb-4">
+                    <div class="product-img position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="t3.png" alt="">
+
+                    </div>
+                    <div class="text-center py-4" id="bb">
+                        <a href="details-11.html" style="text-decoration: none;">
+                            <h6 id="de">Ferrero Rocher Pinata Cake</h6>
+                        </a>
+                        <div class="d-flex align-items-center justify-content-center mt-2">
+                            <h5>Rs. 999</h5>
+
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center mb-1">
+                            <small class="fa fa-star mr-1" style="color:#FF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#fF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small class="fa fa-star-half-alt mr-1" style="color:#ff467C"></small>
+                            <small style="color:#FFF">(99)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                <div class="product-item bg-light mb-4">
+                    <div class="product-img position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="t4.png" alt="">
+
+                    </div>
+                    <div class="text-center py-4" id="bb">
+                        <a href="details-12.html" style="text-decoration: none;">
+                            <h6 id="de">Surprise cake box</h6>
+                        </a>
+                        <div class="d-flex align-items-center justify-content-center mt-2">
+                            <h5>Rs. 1,500</h5>
+
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center mb-1">
+                            <small class="fa fa-star mr-1" style="color:#FF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#fF467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small class="fa fa-star mr-1" style="color:#ff467C"></small>
+                            <small style="color:#FFF">(99)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Products End -->
+
+
+
+
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+            <h3>Healthy<span> Cakes</span></h3>
+
+            <p class="footer-links">
+                <a href="index.html">Home</a> |
+                <a href="contact.html">Contact</a>
+            </p>
+
+        </div>
+
+        <div class="footer-center">
+            <div>
+                <i class="fas fa-map-marker-alt"></i>
+                <p><span>ABCD</span> ABCD
+                </p>
+            </div>
+
+            <div>
+                <i class="fas fa-phone-alt"></i>
+                <p>+91 1234567890</p>
+            </div>
+            <div>
+                <i class="fas fa-envelope"></i>
+                <p><a href="mailto:sagar00001.co@gmail.com">ab@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>About the company</span>
+                <strong>Healthy Cakes</strong> is the best cake shop. Hence, add more happiness to your every celebrations with our healthy cakes
+            </p>
+            <div class="footer-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+</html>

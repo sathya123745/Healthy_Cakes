@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Healthy Cakes</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        #heads {
+            margin: auto;
+            height: 95vh;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            overflow: auto;
+            background: linear-gradient(132deg, rgba(8, 83, 156, 0.75), rgba(255, 70, 124, 0.75)), url('z2.jpg');
+            animation: gradient 15s ease infinite;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            font-family: 'Merienda', cursive;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .navbar {
+            background-color: #667490;
+        }
+        
+        .scrolling-navbar {
+            transition: background .5s ease-in-out, padding .5s ease-in-out;
+        }
+        
+        .top-nav-collapse {
+            background-color: #667490;
+        }
+        
+        @media only screen and (max-width: 768px) {
+            .navbar {
+                background-color: #667490;
+            }
+        }
+        /* Necessary for full page carousel*/
+        
+        html,
+        body,
+        .view {
+            height: 100%;
+        }
+        
+        .navbar {
+            background: #2d2a30;
+            border-bottom: 2px solid #fff;
+        }
+        
+        .navbar img {
+            height: 45px;
+            width: 180px;
+        }
+        
+        .navbar-nav {
+            margin-left: 17.5rem;
+        }
+        
+        .nav-item {
+            padding-right: 25px;
+            font-size: 17px;
+        }
+        
+        .navbar-nav .nav-item .nav-link {
+            color: #fff;
+            transition: 0.3s;
+        }
+        
+        .navbar-nav .nav-item .nav-link:hover {
+            color: #ff467c;
+        }
+        
+        #i1 {
+            margin-right: 4px;
+        }
+        
+        #i2 {
+            margin-right: 2px;
+        }
+        
+        #i3 {
+            margin-right: 4px;
+            cursor: pointer;
+        }
+        
+        #di:hover {
+            background: #ff467c;
+            color: #fff;
+        }
+        
+        #search-container {
+            float: right;
+            margin-right: 7px;
+        }
+        
+        #search-container input[type=text] {
+            padding: 6px;
+            margin-top: 2.6px;
+            font-size: 17px;
+            border: none;
+            outline: none;
+            width: 10rem;
+        }
+        
+        #search-container button {
+            float: left;
+            padding: 6px 10px;
+            margin-top: 2.6px;
+            margin-left: 35px;
+            background: #ff467c;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+        
+        #search-container button:hover {
+            background: #ff4500;
+        }
+        
+        .navbar .navbar-toggler:hover {
+            outline: none;
+            border: 2px solid #fff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        
+        @media (max-width: 1300px) {
+            #search-container {
+                margin-right: 1rem;
+                float: left;
+            }
+            #search-container input[type=text],
+            #search-container button {
+                margin-bottom: 5px;
+                margin-top: 8px;
+            }
+            #search-container button {
+                margin-left: 22px;
+            }
+            .navbar-nav {
+                margin-left: 20px;
+            }
+            .navbar img {
+                height: 45px;
+                width: 150px;
+            }
+            .nav-item {
+                padding: 6px 0;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            #search-container input[type=text] {
+                width: 120px;
+            }
+        }
+        
+        #header1 {
+            margin: 100px auto;
+            width: 50%;
+            background: white;
+            background-position: center;
+            background-size: 100% 100%;
+            border-radius: 10px;
+            text-align: center;
+            padding: 20px 20px;
+            position: absolute;
+            top: 32%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: black;
+            text-align: center;
+        }
+        
+        #header1 h3 {
+            color: #ff467c;
+            -webkit-background-clip: text;
+            font-family: 'Merienda', cursive;
+            padding-bottom: 10px;
+            font-size: 3em;
+            -webkit-background-clip: text;
+        }
+        
+        #header1 p {
+            color: #2d2a30;
+            font-family: 'Merienda', cursive;
+            margin-top: 0.5rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.3em;
+        }
+        
+        .btn {
+            margin-bottom: 0.8rem;
+            position: absolute;
+            background-color: #ff467c;
+            border: 0;
+            border-radius: 56px;
+            color: #fff;
+            cursor: pointer;
+            display: inline-block;
+            font-family: "Poppins", sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            outline: none;
+            padding: 16px 21px;
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            transition: all .3s;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            outline: none;
+        }
+        
+        .btn:before {
+            background-color: initial;
+            background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+            border-radius: 125px;
+            content: "";
+            height: 60%;
+            left: 4%;
+            opacity: .5;
+            position: absolute;
+            top: 0;
+            transition: all .3s;
+            width: 92%;
+            outline: none;
+        }
+        
+        .btn:focus {
+            outline: none;
+        }
+        
+        .btn:hover {
+            outline: none;
+            background: #FF4500;
+        }
+        
+        .btn:focus {
+            outline: none;
+        }
+        
+        @keyframes sTransition {
+            0% {
+                background-position: 0%;
+            }
+            100% {
+                background-position: 400%;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            #header1 {
+                padding: 25px 20px;
+            }
+            #header1 h3 {
+                font-size: 22px;
+            }
+            #header1 p {
+                font-size: 1rem;
+            }
+            .btn {
+                padding: 16px 16px;
+                font-size: 17px;
+            }
+        }
+        
+        @media (max-width: 500px) {
+            #header1 {
+                padding: 25px 10px;
+                width: 80%;
+            }
+            #header1 h3 {
+                font-size: 18px;
+            }
+            #header1 p {
+                font-size: 0.75rem;
+            }
+            .btn {
+                padding: 10px 10px;
+                font-size: 14px;
+                margin-bottom: 0.6rem;
+            }
+        }
+        /* footer */
+        
+        footer {
+            position: relative;
+            bottom: 0;
+        }
+        
+        @media (max-height:800px) {
+            footer {
+                position: static;
+            }
+        }
+        
+        .footer-distributed {
+            background-color: #2d2a30;
+            box-sizing: border-box;
+            width: 100%;
+            text-align: left;
+            font: bold 16px sans-serif;
+            padding: 50px 50px 60px 50px;
+            margin-top: 0px;
+        }
+        
+        .footer-distributed .footer-left,
+        .footer-distributed .footer-center,
+        .footer-distributed .footer-right {
+            display: inline-block;
+            vertical-align: top;
+        }
+        /* Footer left */
+        
+        .footer-distributed .footer-left {
+            width: 30%;
+        }
+        
+        .footer-distributed h3 {
+            color: #ffffff;
+            font: normal 36px 'Cookie', cursive;
+            margin: 0;
+        }
+        
+        .footer-distributed h3 span {
+            color: #ff467c;
+        }
+        /* Footer links */
+        
+        .footer-distributed .footer-links {
+            color: #ffffff;
+            margin: 20px 0 12px;
+        }
+        
+        .footer-distributed .footer-links a {
+            display: inline-block;
+            line-height: 1.8;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .footer-distributed .footer-company-name {
+            color: #8f9296;
+            font-size: 14px;
+            font-weight: normal;
+            margin: 0;
+        }
+        /* Footer Center */
+        
+        .footer-distributed .footer-center {
+            width: 35%;
+        }
+        
+        .footer-distributed .footer-center i {
+            background-color: #ff467c;
+            color: #fff;
+            font-size: 20px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 42px;
+            margin: 10px 15px;
+            vertical-align: middle;
+        }
+        
+        .footer-distributed .footer-center i:hover {
+            background-color: #ff4500;
+        }
+        
+        .footer-distributed .footer-center i.fa-envelope {
+            line-height: 38px;
+        }
+        
+        .footer-distributed .footer-center p {
+            display: inline-block;
+            color: #ffffff;
+            vertical-align: middle;
+            margin: 0;
+        }
+        
+        .footer-distributed .footer-center p span {
+            display: block;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 2;
+        }
+        
+        .footer-distributed .footer-center p a {
+            color: #fff;
+            text-decoration: none;
+            ;
+        }
+        /* Footer Right */
+        
+        .footer-distributed .footer-right {
+            width: 30%;
+        }
+        
+        .footer-distributed .footer-company-about {
+            line-height: 20px;
+            color: #92999f;
+            font-size: 13px;
+            font-weight: normal;
+            margin: 0;
+        }
+        
+        .footer-distributed .footer-company-about span {
+            display: block;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .footer-distributed .footer-icons {
+            margin-top: 25px;
+        }
+        
+        .footer-distributed .footer-icons a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            background-color: #33383b;
+            border-radius: 2px;
+            font-size: 20px;
+            color: #ffffff;
+            text-align: center;
+            line-height: 35px;
+            margin-right: 3px;
+            margin-bottom: 5px;
+        }
+        
+        .footer-distributed .footer-icons a {
+            background-color: #ff467c;
+        }
+        
+        .footer-distributed .footer-icons a:hover {
+            background-color: #ff4500;
+        }
+        
+        .footer-links a:hover {
+            color: #ff467c;
+        }
+        
+        @media (max-width: 900px) {
+            .footer-distributed .footer-left,
+            .footer-distributed .footer-center,
+            .footer-distributed .footer-right {
+                display: block;
+                width: 100%;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+            .footer-distributed .footer-center i {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar fixed-top">
+
+        <!-- Navbar brand -->
+        <img src="logo.png">
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="basicExampleNav">
+
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html"><i class="fa fa-home" id="i2"></i>Home
+              <span class="sr-only">(current)</span>
+          </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html"><i class="fa fa-info-circle" id="i1"></i>About</a>
+                </li>
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor:pointer;color: #ff467c;"><i class="fa fa-user-circle" id="i3"></i>Account</a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" id="di" href="signup.html">Sign up</a>
+                        <a class="dropdown-item" id="di" href="signin.html">Sign in</a>
+                        <a class="dropdown-item" id="di" href="index.html">Sign out</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html"><i class="fa fa-fw fa-envelope" id="i2"></i>Contact</a>
+                </li>
+
+            </ul>
+            <!-- Links -->
+
+            <div id="search-container">
+                <form action="index.html">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fa fa-search" style="color:#fff;"></i></button>
+                </form>
+            </div>
+        </div>
+        <!-- Collapsible content -->
+
+    </nav>
+    <!--/.Navbar-->
+
+    <div id="heads">
+        <div id="header1">
+            <h3>Congratulations! 🎉🥳</h3>
+            <p>Your order has been placed. Thank you for shopping with us.</p>
+            <a href="index.html"><button class="btn btn1">Back to home</button></a>
+        </div>
+    </div>
+
+    <!-- footer -->
+
+
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+            <h3>Healthy<span> Cakes</span></h3>
+
+            <p class="footer-links">
+                <a href="index.html">Home</a> |
+                <a href="contact.html">Contact</a>
+            </p>
+
+        </div>
+
+        <div class="footer-center">
+            <div>
+                <i class="fas fa-map-marker-alt"></i>
+                <p><span>ABCD</span> ABCD
+                </p>
+            </div>
+
+            <div>
+                <i class="fas fa-phone-alt"></i>
+                <p>+91 1234567890</p>
+            </div>
+            <div>
+                <i class="fas fa-envelope"></i>
+                <p><a href="mailto:sagar00001.co@gmail.com">ab@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>About the company</span>
+                <strong>Healthy Cakes</strong> is the best cake shop. Hence, add more happiness to your every celebrations with our healthy cakes
+            </p>
+            <div class="footer-icons">
+                <a href="#"><i style="color:#FFF" class="fab fa-facebook-f"></i></a>
+                <a href="#"><i style="color:#FFF" class="fab fa-instagram"></i></a>
+                <a href="#"><i style="color:#FFF" class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i style="color:#FFF" class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        //lets start the confetti functnality
+        //first we will create function
+        const start = () => {
+            setTimeout(function() {
+                confetti.start();
+            }, 1000);
+        };
+
+        const stop = () => {
+            setTimeout(function() {
+                confetti.stop();
+            }, 5000);
+        };
+
+        // i am writing these start and stop here bcs it will tell the compiler to start the function
+        start();
+        stop();
+    </script>
+    <script>
+        var confetti = {
+            maxCount: 150, //set max confetti count
+            speed: 2, //set the particle animation speed
+            frameInterval: 15, //the confetti animation frame interval in milliseconds
+            alpha: 1.0, //the alpha opacity of the confetti (between 0 and 1, where 1 is opaque and 0 is invisible)
+            gradient: false, //whether to use gradients for the confetti particles
+            start: null, //call to start confetti animation (with optional timeout in milliseconds, and optional min and max random confetti count)
+            stop: null, //call to stop adding confetti
+            toggle: null, //call to start or stop the confetti animation depending on whether it's already running
+            pause: null, //call to freeze confetti animation
+            resume: null, //call to unfreeze confetti animation
+            togglePause: null, //call to toggle whether the confetti animation is paused
+            remove: null, //call to stop the confetti animation and remove all confetti immediately
+            isPaused: null, //call and returns true or false depending on whether the confetti animation is paused
+            isRunning: null //call and returns true or false depending on whether the animation is running
+        };
+
+        (function() {
+            confetti.start = startConfetti;
+            confetti.stop = stopConfetti;
+            confetti.toggle = toggleConfetti;
+            confetti.pause = pauseConfetti;
+            confetti.resume = resumeConfetti;
+            confetti.togglePause = toggleConfettiPause;
+            confetti.isPaused = isConfettiPaused;
+            confetti.remove = removeConfetti;
+            confetti.isRunning = isConfettiRunning;
+            var supportsAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame;
+            var colors = ["rgba(30,144,255,", "rgba(107,142,35,", "rgba(255,215,0,", "rgba(255,192,203,", "rgba(106,90,205,", "rgba(173,216,230,", "rgba(238,130,238,", "rgba(152,251,152,", "rgba(70,130,180,", "rgba(244,164,96,", "rgba(210,105,30,", "rgba(220,20,60,"];
+            var streamingConfetti = false;
+            var animationTimer = null;
+            var pause = false;
+            var lastFrameTime = Date.now();
+            var particles = [];
+            var waveAngle = 0;
+            var context = null;
+
+            function resetParticle(particle, width, height) {
+                particle.color = colors[(Math.random() * colors.length) | 0] + (confetti.alpha + ")");
+                particle.color2 = colors[(Math.random() * colors.length) | 0] + (confetti.alpha + ")");
+                particle.x = Math.random() * width;
+                particle.y = Math.random() * height - height;
+                particle.diameter = Math.random() * 10 + 5;
+                particle.tilt = Math.random() * 10 - 10;
+                particle.tiltAngleIncrement = Math.random() * 0.07 + 0.05;
+                particle.tiltAngle = Math.random() * Math.PI;
+                return particle;
+            }
+
+            function toggleConfettiPause() {
+                if (pause)
+                    resumeConfetti();
+                else
+                    pauseConfetti();
+            }
+
+            function isConfettiPaused() {
+                return pause;
+            }
+
+            function pauseConfetti() {
+                pause = true;
+            }
+
+            function resumeConfetti() {
+                pause = false;
+                runAnimation();
+            }
+
+            function runAnimation() {
+                if (pause)
+                    return;
+                else if (particles.length === 0) {
+                    context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+                    animationTimer = null;
+                } else {
+                    var now = Date.now();
+                    var delta = now - lastFrameTime;
+                    if (!supportsAnimationFrame || delta > confetti.frameInterval) {
+                        context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+                        updateParticles();
+                        drawParticles(context);
+                        lastFrameTime = now - (delta % confetti.frameInterval);
+                    }
+                    animationTimer = requestAnimationFrame(runAnimation);
+                }
+            }
+
+            function startConfetti(timeout, min, max) {
+                var width = window.innerWidth;
+                var height = window.innerHeight;
+                window.requestAnimationFrame = (function() {
+                    return window.requestAnimationFrame ||
+                        window.webkitRequestAnimationFrame ||
+                        window.mozRequestAnimationFrame ||
+                        window.oRequestAnimationFrame ||
+                        window.msRequestAnimationFrame ||
+                        function(callback) {
+                            return window.setTimeout(callback, confetti.frameInterval);
+                        };
+                })();
+                var canvas = document.getElementById("confetti-canvas");
+                if (canvas === null) {
+                    canvas = document.createElement("canvas");
+                    canvas.setAttribute("id", "confetti-canvas");
+                    canvas.setAttribute("style", "display:block;z-index:999999;pointer-events:none;position:fixed;top:0");
+                    document.body.prepend(canvas);
+                    canvas.width = width;
+                    canvas.height = height;
+                    window.addEventListener("resize", function() {
+                        canvas.width = window.innerWidth;
+                        canvas.height = window.innerHeight;
+                    }, true);
+                    context = canvas.getContext("2d");
+                } else if (context === null)
+                    context = canvas.getContext("2d");
+                var count = confetti.maxCount;
+                if (min) {
+                    if (max) {
+                        if (min == max)
+                            count = particles.length + max;
+                        else {
+                            if (min > max) {
+                                var temp = min;
+                                min = max;
+                                max = temp;
+                            }
+                            count = particles.length + ((Math.random() * (max - min) + min) | 0);
+                        }
+                    } else
+                        count = particles.length + min;
+                } else if (max)
+                    count = particles.length + max;
+                while (particles.length < count)
+                    particles.push(resetParticle({}, width, height));
+                streamingConfetti = true;
+                pause = false;
+                runAnimation();
+                if (timeout) {
+                    window.setTimeout(stopConfetti, timeout);
+                }
+            }
+
+            function stopConfetti() {
+                streamingConfetti = false;
+            }
+
+            function removeConfetti() {
+                stop();
+                pause = false;
+                particles = [];
+            }
+
+            function toggleConfetti() {
+                if (streamingConfetti)
+                    stopConfetti();
+                else
+                    startConfetti();
+            }
+
+            function isConfettiRunning() {
+                return streamingConfetti;
+            }
+
+            function drawParticles(context) {
+                var particle;
+                var x, y, x2, y2;
+                for (var i = 0; i < particles.length; i++) {
+                    particle = particles[i];
+                    context.beginPath();
+                    context.lineWidth = particle.diameter;
+                    x2 = particle.x + particle.tilt;
+                    x = x2 + particle.diameter / 2;
+                    y2 = particle.y + particle.tilt + particle.diameter / 2;
+                    if (confetti.gradient) {
+                        var gradient = context.createLinearGradient(x, particle.y, x2, y2);
+                        gradient.addColorStop("0", particle.color);
+                        gradient.addColorStop("1.0", particle.color2);
+                        context.strokeStyle = gradient;
+                    } else
+                        context.strokeStyle = particle.color;
+                    context.moveTo(x, particle.y);
+                    context.lineTo(x2, y2);
+                    context.stroke();
+                }
+            }
+
+            function updateParticles() {
+                var width = window.innerWidth;
+                var height = window.innerHeight;
+                var particle;
+                waveAngle += 0.01;
+                for (var i = 0; i < particles.length; i++) {
+                    particle = particles[i];
+                    if (!streamingConfetti && particle.y < -15)
+                        particle.y = height + 100;
+                    else {
+                        particle.tiltAngle += particle.tiltAngleIncrement;
+                        particle.x += Math.sin(waveAngle) - 0.5;
+                        particle.y += (Math.cos(waveAngle) + particle.diameter + confetti.speed) * 0.5;
+                        particle.tilt = Math.sin(particle.tiltAngle) * 15;
+                    }
+                    if (particle.x > width + 20 || particle.x < -20 || particle.y > height) {
+                        if (streamingConfetti && particles.length <= confetti.maxCount)
+                            resetParticle(particle, width, height);
+                        else {
+                            particles.splice(i, 1);
+                            i--;
+                        }
+                    }
+                }
+            }
+        })();
+    </script>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+</html>
